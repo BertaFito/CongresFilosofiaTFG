@@ -69,6 +69,42 @@
         .ant { left: -28px; }
         .seg { right: -28px; }
 
+        /* Cartell */
+        .banner-anunci {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            border: 2px dashed var(--primari-clar);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            transition: var(--transicio);
+        }
+
+        .banner-anunci h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primari);
+            margin-bottom: 1rem;
+        }
+
+        .enllac-calendari-banner {
+            display: inline-block;
+            background: var(--primari);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transicio);
+        }
+
+        .enllac-calendari-banner:hover {
+            background: var(--primari-clar);
+            transform: scale(1.05);
+        }
+
+        /* Galeria */
         .separador-galeria { margin: 3rem 0 2rem; height: 1px; background: linear-gradient(to right, transparent, #e2e8f0, transparent); }
         
         .enllac-galeria-contenidor {
@@ -204,7 +240,7 @@
         <div class="carta-vidre">
             <h3>Agenda</h3>
             <p>Les ponències es realitzaran a la <b>quarta planta</b> de la 
-            <a href="https://maps.app.goo.gl/3bHXHxxcC1zYNB379" target="_blank" class="enllac-mapa-text">Facultat de Filosofia (UB)</a>, <strong>sala Jane Addams</strong>.</p>
+            <a href="https://maps.app.goo.gl/3bHXHxxcC1zYNB379" target="_blank" class="enllac-mapa-text">Facultat de Filosofia (UB)</a>, <strong>Seminari Lluís Vives</strong>.</p>
 
             <div class="caixa-data" onclick="crearEsdevenimentGeneral()">
                 <div class="dia">18</div>
@@ -237,7 +273,12 @@
     <div class="cos-modal" onclick="event.stopPropagation()">
         <span class="creu-tancar" onclick="tancarModalDirecte('modal-calendari')">×</span>
         <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 2rem;">Calendari de Ponències</h2>
-        <div id="llista-calendari" style="max-height: 55vh; overflow-y: auto; padding-right: 1rem;"></div>
+
+        <div class="banner-anunci" style="margin: 0; background: none; border: none;">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">L'horari de les intervencions s'anunciarà <b>pròximament!</b></p>
+        </div>
+
+        <!-- <div id="llista-calendari" style="max-height: 55vh; overflow-y: auto; padding-right: 1rem;"></div> -->
     </div>
 </div>
 
