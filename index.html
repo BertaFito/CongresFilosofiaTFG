@@ -53,42 +53,22 @@
         .titol-seccio { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
         .titol-seccio::after { content: ""; flex-grow: 1; height: 1px; background: #e2e8f0; }
 
-        /* Cartell */
-        .banner-anunci {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            border: 2px dashed var(--primari-clar);
-            border-radius: 20px;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 2rem 0;
-            transition: var(--transicio);
-        }
+        .visor-lliscant { position: relative; padding: 20px 0; }
+        .finestra-lliscant { overflow: hidden; border-radius: 16px; }
+        .pista-lliscant { display: flex; gap: 2rem; width: max-content; }
 
-        .banner-anunci h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--primari);
-            margin-bottom: 1rem;
-        }
+        .carta { width: 320px; background: var(--fons); border-radius: 20px; padding: 2.5rem; transition: var(--transicio); border: 1px solid transparent; cursor: pointer; display: flex; flex-direction: column; gap: 1.5rem; }
+        .carta:hover { background: var(--blanc); transform: translateY(-10px); border-color: var(--primari-clar); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .carta .etiqueta { background: var(--primari); color: var(--blanc); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; width: fit-content; }
+        .carta .nom-estudiant { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primari); line-height: 1.2; }
+        .carta .titol-tfg { font-weight: 600; font-size: 1.1rem; }
 
-        .enllac-calendari-banner {
-            display: inline-block;
-            background: var(--primari);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: var(--transicio);
-        }
+        .boto-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 56px; height: 56px; background: var(--blanc); border: none; border-radius: 50%; box-shadow: 0 10px 15px rgba(0,0,0,0.1); cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primari); transition: var(--transicio); opacity: 0; }
+        .visor-lliscant:hover .boto-nav { opacity: 1; }
+        .boto-nav:hover { background: var(--primari); color: var(--blanc); transform: translateY(-50%) scale(1.1); }
+        .ant { left: -28px; }
+        .seg { right: -28px; }
 
-        .enllac-calendari-banner:hover {
-            background: var(--primari-clar);
-            transform: scale(1.05);
-        }
-
-        /* Galleria */
         .separador-galeria { margin: 3rem 0 2rem; height: 1px; background: linear-gradient(to right, transparent, #e2e8f0, transparent); }
         
         .enllac-galeria-contenidor {
@@ -100,7 +80,6 @@
             border-radius: 20px;
             border: 1px solid #e2e8f0;
             transition: var(--transicio);
-            text-align: left;
         }
 
         .enllac-galeria-contenidor:hover {
@@ -126,9 +105,7 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            background: linear-gradient(rgba(85, 107, 47, 0), rgba(85, 107, 47, 0)), 
-                        url('Pàgines/Oliva-botó.jpg');
-            border-color: var(--primari);
+            background: var(--primari);
             color: var(--blanc);
             text-decoration: none;
             padding: 0.8rem 1.5rem;
@@ -140,8 +117,7 @@
         }
 
         .boto-galeria:hover {
-            background: linear-gradient(rgba(85, 107, 47, 0.8), rgba(85, 107, 47, 0.8)), 
-                        url('Pàgines/Oliva-botó.jpg');
+            background: var(--primari-clar);
             transform: translateX(5px);
         }
 
@@ -164,16 +140,21 @@
         .enllac-legal:hover { color: var(--text); text-decoration: underline; }
 
         .modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 2rem; }
-        .cos-modal { background: var(--blanc); padding: 3.5rem; border-radius: 32px; max-width: 850px; width: 100%; position: relative; animation: lliscaAmunt 0.5s ease; text-align: center; }
+        .cos-modal { background: var(--blanc); padding: 3.5rem; border-radius: 32px; max-width: 850px; width: 100%; position: relative; animation: lliscaAmunt 0.5s ease; }
         
         .creu-tancar { position: absolute; top: 25px; right: 25px; font-size: 2rem; color: var(--text-clar); cursor: pointer; transition: var(--transicio); line-height: 1; }
         .creu-tancar:hover { color: var(--primari); transform: rotate(90deg); }
 
         @keyframes lliscaAmunt { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
+        .item-calendari { transition: var(--transicio); cursor: pointer; border-radius: 12px; margin-bottom: 5px; }
+        .item-calendari:hover { background: #f1f5f9; }
+        .item-calendari.destacat { background-color: #fef9c3; z-index: 10; position: relative}
+        
         @media (max-width: 1100px) { .contenidor { grid-template-columns: 1fr; } header { padding: 6rem 1.5rem; } }
         @media (max-width: 650px) { 
             .enllac-galeria-contenidor { flex-direction: column; text-align: center; gap: 1.5rem; padding: 2rem; }
+            .carta { width: 280px; } 
             .cos-modal { padding: 2rem; } 
         }
     </style>
@@ -192,12 +173,12 @@
     <main class="seccio-mostra">
         <h2 class="titol-seccio">Ponents</h2>
         
-        <div class="banner-anunci">
-            <h3>Pròximament</h3>
-            <p>Les ponències s'anunciaran el dia <strong>8 de Juny del 2026</strong>.</p>
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Anunci+de+Ponents:+Congrés+de+Filosofia+UB&dates=20260608T070000Z/20260608T080000Z&details=Avui+s'anuncien+els+ponents+del+Congrés+de+Filosofia+(TFG)!&location=Facultat+de+Filosofia+UB" target="_blank" class="enllac-calendari-banner">
-                Afeigeix l'avís al calendari
-            </a>
+        <div class="visor-lliscant">
+            <button class="boto-nav ant" onclick="moureManual(-1)">←</button>
+            <div class="finestra-lliscant">
+                <div class="pista-lliscant" id="slider"></div>
+            </div>
+            <button class="boto-nav seg" onclick="moureManual(1)">→</button>
         </div>
 
         <div class="separador-galeria"></div>
@@ -205,7 +186,7 @@
         <div class="enllac-galeria-contenidor">
             <div class="text-galeria">
                 <h3>Galeria Filosòfica</h3>
-                <p>Explora el contingut addicional de produccions audiovisuals i textos de l'alumnat.</p>
+                <p>Explora el contingut addicional de produccions audiovisuals i texts de l'alumnat.</p>
             </div>
             <a href="galeria.html" class="boto-galeria">
                 <span>Explorar</span>
@@ -217,7 +198,7 @@
     <aside class="barra-lateral">
         <div class="carta-vidre">
             <h3>Sobre el Congrés</h3>
-            <p>Dirigit per la <strong>Dra. Margarita Mauri Álvarez</strong>, aquest congrés reuneix els treballs d'investigació filosòfica de l'alumnat amb motiu de la finalització del Grau de Filosofia de la Universitat de Barcelona. <i>És una jornada oberta per compartir idees.</i></p>
+            <p>Dirigit per la <strong>Dra. Margarita Mauri</strong>, aquest congrés reuneix els treballs de recerca de l'alumnat amb motiu de la finalització del Grau de Filosofia de la Universitat de Barcelona. <i>És una jornada oberta per compartir idees.</i></p>
         </div>
 
         <div class="carta-vidre">
@@ -232,7 +213,7 @@
                     <div style="font-size: 0.85rem; color: var(--text-clar);">Clica i afegeix-ho al teu calendari!</div>
                 </div>
             </div>
-            <button onclick="obrirModal('modal-calendari')" style="margin-top: 1.5rem; width: 100%; padding: 1rem; border-radius: 12px; border: none; background: var(--primari); color: white; cursor: pointer; font-weight: 600;">Veure Detalls</button>
+            <button onclick="obrirModal('modal-calendari')" style="margin-top: 1.5rem; width: 100%; padding: 1rem; border-radius: 12px; border: none; background: var(--primari); color: white; cursor: pointer; font-weight: 600; transition: var(--transicio);">Veure Detalls i Horaris</button>
         </div>
     </aside>
 </div>
@@ -256,24 +237,162 @@
     <div class="cos-modal" onclick="event.stopPropagation()">
         <span class="creu-tancar" onclick="tancarModalDirecte('modal-calendari')">×</span>
         <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 2rem;">Calendari de Ponències</h2>
-        
-        <div class="banner-anunci" style="margin: 0; background: none; border: none;">
-            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">El programa detallat i l'horari de les intervencions s'anunciaran el dia:</p>
-            <div style="font-size: 2rem; font-weight: 700; color: var(--primari); margin-bottom: 1.5rem;">8 de Juny, 2026</div>
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Anunci+de+Ponents:+Congrés+de+Filosofia+UB&dates=20260608T070000Z/20260608T080000Z&details=Avui+s'anuncien+els+ponents+del+Congrés+de+Filosofia+(TFG)!&location=Facultat+de+Filosofia+UB" target="_blank" class="enllac-calendari-banner">
-                Afegeix l'avís al calendari
-            </a>
-        </div>
+        <div id="llista-calendari" style="max-height: 55vh; overflow-y: auto; padding-right: 1rem;"></div>
     </div>
 </div>
 
 <script>
+    // Dades de les ponents i les seves ponències
+    const dadesEstudiants = [
+        { sessio: 'Pròximament', nom: 'Estel Alegret Vigas', titol: 'La Filosofia en les pel·lícules d\'Agnès Varda. Una anàlisi en clau filosòfica de \'L\'une chante, l\'autre pas\' i \'Sans Toit Ni Loi\'', resum: 'L\'objectiu d\'aquest treball de fi de grau és el de trobar i exposar la filosofia que es mostra en dues de les pel·lícules d\'Agnès Varda, passant primer per una exposició dels debats pertinents de la Filosofia del Cinema.' },
+        { sessio: 'Pròximament', nom: 'Júlia Amorós López', titol: 'Experiència estètica i reconciliació entre raó i sensibilitat a les Cartes sobre l\'educació estètica de l\'home de Friedrich Schiller', resum: 'En aquest treball s\'analitzarà el paper de l\'experiència estètica com a estadi reconciliador entre sensibilitat i raó i la seva viabilitat conceptual a les Cartes sobre l\'educació estètica de l\'home de Friedrich Schiller.' },
+        { sessio: 'Pròximament', nom: 'Erxart Casas Llargués', titol: 'Ètica aplicada a les xarxes socials', resum: '' },
+        { sessio: 'Pròximament', nom: 'Berta Fitó Casas', titol: 'La campana sense batall. Sobre els texts generats amb models d\'Intel·ligència Artificial, l\'autoria artística i l\'experiència humana', resum: 'Es proposa una definició d\'autoria basada en la intenció i la responsabilitat, i es contrasta als models generatius d\'IA. Es planteja l\'impacte de la inclusió dels texts generats a la literatura.' },
+        { sessio: 'Pròximament', nom: 'Christopher Hauschildt Vezga', titol: 'La disputa por la esencia humana: una aproximación entre Santo Tomás y M. Heidegger', resum: 'Breve investigación orientada a demostrar que en la imagen del ser humano como compuesto de alma y cuerpo es posible hallar las consideraciones antropológicas de Heidegger en su respectiva aportación acerca del "Dasein".' },
+        { sessio: 'Pròximament', nom: 'Óscar Jordán Ribas', titol: 'Materialismo Filosófico y Teoría de la Literatura: Disco Elysium desde la Crítica de la Razón Literaria', resum: 'Un estudio de la novela digital interactiva Disco Elysium bajo los criterios materialistas de la Crítica de la Razón Literaria.' },
+        { sessio: 'Pròximament', nom: 'Pau Marin Lluch', titol: 'Dir la cosa. Una dificultat entre el <i>Cràtil</i> i <i>El polític</i> de Plató', resum: 'Aquest treball exposa la dificultat que presenta el saber relatiu al parlar i a la <i>pólis</i>. L’objectiu és defensar amb Plató que, al respecte, no hi pot haver pas un saber tètic o categòric; que si, i per contra, pot haver-hi un entès el saber del qual fos tot allò que concerneix al parlar i a la <i>pólis</i>, el seu saber estaria destinat a sempre fracassar.' },
+        { sessio: 'Pròximament', nom: 'Pere Joan Mayol Lliteras', titol: 'Virtut i Essència: un lligam entre les obres de MacIntyre i Zubiri', resum: 'Es pretendrà veure com, des de dos punts de vista aparentment distants, es pot extreure que és la mateixa condició humana la que demana d\'actuar de manera virtuosa per tal de tenir una vida plena.' },
+        { sessio: 'Pròximament', nom: 'Carla Panisello Acevedo', titol: 'El concepte de \'poder\' en Thomas Hobbes en l\'actualitat: el cas de l\'exercici de la prostitució a l\'Estat espanyol', resum: 'Aquest treball té com a objectiu mostrar fins a quin punt el concepte de poder en Thomas Hobbes, concretament la distinció entre potentia i potestas, continua sent útil per analitzar situacions en què la llei no intervé. S\'utilitzarà, com a cas d\'estudi, la de la prostitució a l\'actual Estat espanyol.' },
+        { sessio: 'Pròximament', nom: 'Jan Perramon Gutiérrez', titol: 'La dominación de la voluntad sobre el intelecto en Schopenhauer', resum: '' }
+    ];
+
+    const slider = document.getElementById('slider');
+    const llistaCalendari = document.getElementById('llista-calendari');
+    const visor = document.querySelector('.finestra-lliscant');
+    
+    const clonesCount = 3;
+    const obtenirPas = () => window.innerWidth <= 600 ? 312 : 352; 
+    let indexActual = clonesCount;
+    let esMou = false;
+    let temporitzadorAuto;
+
+    // Generació de les cartes des de l'esquerra
+    const indexAleatori = Math.floor(Math.random() * dadesEstudiants.length);   // Es comença la llista des d'un índex aleatori a cada visita
+    const dadesRotades = [
+            ...dadesEstudiants.slice(indexAleatori),
+            ...dadesEstudiants.slice(0, indexAleatori)
+        ];                                                                      // Es reordena la llista perquè comenci a indexAleatori i faci la volta
+    
+    const extes = [...dadesRotades.slice(-clonesCount), ...dadesRotades, ...dadesRotades.slice(0, clonesCount)];
+    extes.forEach((estudiant, i) => {
+        const carta = document.createElement('div');
+        carta.className = 'carta';
+        
+        const idRotat = (i - clonesCount + dadesRotades.length) % dadesRotades.length;  // S'identifica l'estudiant dins de la llista rotada
+        const estudiantActual = dadesRotades[idRotat];                                  // per assegurar que es correspon amb el que es mostra a la carta, independentment de l'ordre
+        
+        const idOriginal = dadesEstudiants.indexOf(estudiantActual);
+
+        // Esdeveniments per destacar i aturar el moviment
+        carta.addEventListener('mouseenter', aturarRotacio);
+        carta.onclick = () => {
+            obrirModal('modal-calendari');
+            destacarAlCalendari(idOriginal);
+        }
+        
+        carta.innerHTML = `
+            <div class="etiqueta">${estudiant.sessio}</div>
+            <div class="nom-estudiant">${estudiant.nom}</div>
+            <div class="titol-tfg">${estudiant.titol}</div>
+            <p>${estudiant.resum}</p>
+        `;
+        slider.appendChild(carta);
+    });
+
+    // Moviment de les cartes
+    function actualitzarSlider(transicio = true) {
+        slider.style.transition = transicio ? "transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)" : "none";
+        slider.style.transform = `translateX(${-indexActual * obtenirPas()}px)`;
+    }
+
+    // Gestió del moviment lògic
+    function moureManual(dir) {
+        if (esMou) return;
+        esMou = true;
+        indexActual += dir;
+        actualitzarSlider();
+        setTimeout(() => {
+            if (indexActual >= dadesEstudiants.length + clonesCount) indexActual = clonesCount;
+            if (indexActual < clonesCount) indexActual = dadesEstudiants.length + clonesCount - 1;
+            actualitzarSlider(false);
+            esMou = false;
+        }, 800);
+    }
+
+    // Controls de la rotació automàtica
+    function iniciarRotacio() {
+        if (temporitzadorAuto) clearInterval(temporitzadorAuto);
+        temporitzadorAuto = setInterval(() => moureManual(1), 3000);
+    }
+
+    function aturarRotacio() {
+        clearInterval(temporitzadorAuto);
+    }
+
+    // Oients pel contenidor del visor
+    visor.addEventListener('mouseenter', aturarRotacio);
+    visor.addEventListener('mouseleave', iniciarRotacio);
+
+    // Inicialització
+    iniciarRotacio();
+    window.addEventListener('resize', () => actualitzarSlider(false));
+    actualitzarSlider(false);
+
+    // Generació dels elements del calendari (columna dreta/modal)
+    dadesEstudiants.forEach((estudiant, i) => {
+        const item = document.createElement('div');
+        item.className = 'item-calendari';
+        item.id = `item-cal-${i}`;
+        const horaInici = 9 + Math.floor(i / 2);
+        const minutInici = (i % 2) * 30;
+        const horaFormatada = `${String(horaInici).padStart(2,'0')}:${String(minutInici).padStart(2,'0')}`;
+        
+        item.style.cssText = "padding: 1.2rem; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;";
+        item.onclick = () => crearEsdevenimentIndividual(estudiant.nom, horaInici, minutInici);
+        
+        item.innerHTML = `
+            <div>
+                <span style="color: var(--primari); font-weight: 600; margin-right: 15px;">${horaFormatada}h</span>
+                <strong>${estudiant.nom}</strong>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--primari-clar); border: 1px solid var(--primari-clar); padding: 4px 8px; border-radius: 6px;">🗓️ Afegir</span>
+        `;
+        llistaCalendari.appendChild(item);
+    });
+
+    // Funcions de selecció i ressaltat
+    function destacarAlCalendari(id) {
+        treureDestacat(); 
+        const objectiu = document.getElementById(`item-cal-${id}`);
+        if (objectiu) {
+            objectiu.classList.add('destacat');
+            setTimeout(() => {objectiu.scrollIntoView({ behavior: 'smooth', block: 'center' });}, 100);
+        }
+    }
+
+    function treureDestacat() {
+        document.querySelectorAll('.item-calendari').forEach(el => el.classList.remove('destacat'));
+    }
+
+    // Funcions del Modal
     function obrirModal(id) { document.getElementById(id).style.display = 'flex'; }
-    function tancarModalDirecte(id) { document.getElementById(id).style.display = 'none'; }
+    
+    function tancarModalDirecte(id) { 
+        document.getElementById(id).style.display = 'none';
+        treureDestacat();
+    }
+    
     function tancarModal(e) { if(e.target.classList.contains('modal')) tancarModalDirecte(e.target.id); }
 
+    // Funcions de Calendari Google
     function crearEsdevenimentGeneral() {
-        const url = "https://www.google.com/calendar/render?action=TEMPLATE&text=Congrés+de+Filosofia+UB+TFG&dates=20260618T090000Z/20260618T180000Z&details=Jornada+de+presentacions+de+TFG.&location=Facultat+de+Filosofia+UB,+Sala+Jane+Addams";
+        const url = "https://www.google.com/calendar/render?action=TEMPLATE&text=Congrés+de+Filosofia+UB+TFG&dates=20260618T090000Z/20260618T180000Z&details=Jornada+completa+de+presentacions+de+TFG&location=Facultat+de+Filosofia+UB";
+        window.open(url, '_blank');
+    }
+
+    function crearEsdevenimentIndividual(nom, h, m) {
+        const inici = `20260618T${String(h).padStart(2,'0')}${String(m).padStart(2,'0')}00Z`;
+        const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=Ponència+TFG:+${encodeURIComponent(nom)}&dates=${inici}/${inici}&location=Sala+Jane+Addams`;
         window.open(url, '_blank');
     }
 </script>
