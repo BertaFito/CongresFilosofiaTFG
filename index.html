@@ -274,29 +274,29 @@
         <span class="creu-tancar" onclick="tancarModalDirecte('modal-calendari')">×</span>
         <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 2rem;">Calendari de Ponències</h2>
 
-        <div class="banner-anunci" style="margin: 0; background: none; border: none;">
+        <!-- <div class="banner-anunci" style="margin: 0; background: none; border: none;">
             <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">L'horari de les intervencions s'anunciarà <b>pròximament!</b></p>
-        </div>
+        </div> -->
 
-        <!-- <div id="llista-calendari" style="max-height: 55vh; overflow-y: auto; padding-right: 1rem;"></div> -->
+        <div id="llista-calendari" style="max-height: 55vh; overflow-y: auto; padding-right: 1rem;"></div>
     </div>
 </div>
 
 <script>
     // Dades de les ponents i les seves ponències
     const dadesEstudiants = [
-        { sessio: 'Pròximament', nom: 'Estel Alegret Vigas', titol: 'La Filosofia en les pel·lícules d\'Agnès Varda. Una anàlisi en clau filosòfica de \'L\'une chante, l\'autre pas\' i \'Sans Toit Ni Loi\'', resum: 'L\'objectiu d\'aquest treball de fi de grau és el de trobar i exposar la filosofia que es mostra en dues de les pel·lícules d\'Agnès Varda, passant primer per una exposició dels debats pertinents de la Filosofia del Cinema.' },
-        { sessio: 'Pròximament', nom: 'Júlia Amorós López', titol: 'Experiència estètica i reconciliació entre raó i sensibilitat a les Cartes sobre l\'educació estètica de l\'home de Friedrich Schiller', resum: 'En aquest treball s\'analitzarà el paper de l\'experiència estètica com a estadi reconciliador entre sensibilitat i raó i la seva viabilitat conceptual a les Cartes sobre l\'educació estètica de l\'home de Friedrich Schiller.' },
-        { sessio: 'Pròximament', nom: 'Erxart Casas Llargués', titol: 'Ètica aplicada a les xarxes socials', resum: '' },
-        { sessio: 'Pròximament', nom: 'Berta Fitó Casas', titol: 'La campana sense batall. Sobre els texts generats amb models d\'Intel·ligència Artificial, l\'autoria artística i l\'experiència humana', resum: 'Es proposa una definició d\'autoria basada en la intenció i la responsabilitat, i es contrasta als models generatius d\'IA. Es planteja l\'impacte de la inclusió dels texts generats a la literatura.' },
-        { sessio: 'Pròximament', nom: 'Christopher Hauschildt Vezga', titol: 'La disputa por la esencia humana: una aproximación entre Santo Tomás y M. Heidegger', resum: 'Breve investigación orientada a demostrar que en la imagen del ser humano como compuesto de alma y cuerpo es posible hallar las consideraciones antropológicas de Heidegger en su respectiva aportación acerca del "Dasein".' },
-        { sessio: 'Pròximament', nom: 'Óscar Jordán Ribas', titol: 'Materialismo Filosófico y Teoría de la Literatura: Disco Elysium desde la Crítica de la Razón Literaria', resum: 'Un estudio de la novela digital interactiva Disco Elysium bajo los criterios materialistas de la Crítica de la Razón Literaria.' },
-        { sessio: 'Pròximament', nom: 'Pau Marin Lluch', titol: 'Dir la cosa. Una dificultat entre el <i>Cràtil</i> i <i>El polític</i> de Plató', resum: 'Aquest treball exposa la dificultat que presenta el saber relatiu al parlar i a la <i>pólis</i>. L’objectiu és defensar amb Plató que, al respecte, no hi pot haver pas un saber tètic o categòric; que si, i per contra, pot haver-hi un entès el saber del qual fos tot allò que concerneix al parlar i a la <i>pólis</i>, el seu saber estaria destinat a sempre fracassar.' },
-        { sessio: 'Pròximament', nom: 'Atinkut Mas Company', titol: 'L\'estètica de Friedrich Schiller com a via per reduir el sofriment humà', resum: 'Segons Schiller, aquest sofriment neix de la desharmonia entre la sensibilitat i la raó. Per això defensa que només l\'equilibri entre ambdues, mitjançant l\'art i l\'experiència estètica, permet reduir el patiment i viure de manera més plena.' },
-        { sessio: 'Pròximament', nom: 'Pere Joan Mayol Lliteras', titol: 'Virtut i Essència: un lligam entre les obres de MacIntyre i Zubiri', resum: 'Es pretendrà veure com, des de dos punts de vista aparentment distants, es pot extreure que és la mateixa condició humana la que demana d\'actuar de manera virtuosa per tal de tenir una vida plena.' },
-        { sessio: 'Pròximament', nom: 'Carla Panisello Acevedo', titol: 'El concepte de \'poder\' en Thomas Hobbes en l\'actualitat: el cas de l\'exercici de la prostitució a l\'Estat espanyol', resum: 'Aquest treball té com a objectiu mostrar fins a quin punt el concepte de poder en Thomas Hobbes, concretament la distinció entre potentia i potestas, continua sent útil per analitzar situacions en què la llei no intervé. S\'utilitzarà, com a cas d\'estudi, la de la prostitució a l\'actual Estat espanyol.' },
-        { sessio: 'Pròximament', nom: 'Jan Perramon Gutiérrez', titol: 'La dominació de la voluntat sobre l\'intel·lecte en Schopenhauer', resum: 'L\'objectiu del treball és reforçar la tesi schopenhaueriana segons la qual voluntat constitueix l\'essència humana, mentre que l\'intel·lecte ocupa una funció merament instrumental, subordinada a la realització dels fins de la voluntat.' },
-        { sessio: 'Pròximament', nom: 'Ander Salvà Korta', titol: 'La validesa de la democràcia deliberativa de J. Habermas en el context actual marcat per la presència de les xarxes socials', resum: '' }
+        { sessio: '09:00', nom: 'Christopher Hauschildt Vezga', titol: 'La disputa por la esencia humana: una aproximación entre Santo Tomás y M. Heidegger', resum: 'Breve investigación orientada a demostrar que en la imagen del ser humano como compuesto de alma y cuerpo es posible hallar las consideraciones antropológicas de Heidegger en su respectiva aportación acerca del "Dasein".' },
+        { sessio: '09:25', nom: 'Pau Marin Lluch', titol: 'Dir la cosa. Una dificultat entre el <i>Cràtil</i> i <i>El polític</i> de Plató', resum: 'Aquest treball exposa la dificultat que presenta el saber relatiu al parlar i a la <i>pólis</i>. L’objectiu és defensar amb Plató que, al respecte, no hi pot haver pas un saber tètic o categòric; que si, i per contra, pot haver-hi un entès el saber del qual fos tot allò que concerneix al parlar i a la <i>pólis</i>, el seu saber estaria destinat a sempre fracassar.' },
+        { sessio: '09:50', nom: 'Pere Joan Mayol Lliteras', titol: 'Virtut i Essència: un lligam entre les obres de MacIntyre i Zubiri', resum: 'Es pretendrà veure com, des de dos punts de vista aparentment distants, es pot extreure que és la mateixa condició humana la que demana d\'actuar de manera virtuosa per tal de tenir una vida plena.' },
+        { sessio: '10:15', nom: 'Carla Panisello Acevedo', titol: 'El concepte de \'poder\' en Thomas Hobbes en l\'actualitat: el cas de l\'exercici de la prostitució a l\'Estat espanyol', resum: 'Aquest treball té com a objectiu mostrar fins a quin punt el concepte de poder en Thomas Hobbes, concretament la distinció entre potentia i potestas, continua sent útil per analitzar situacions en què la llei no intervé. S\'utilitzarà, com a cas d\'estudi, la de la prostitució a l\'actual Estat espanyol.' },
+        { sessio: '10:55', nom: 'Estel Alegret Vigas', titol: 'La Filosofia en les pel·lícules d\'Agnès Varda. Una anàlisi en clau filosòfica de \'L\'une chante, l\'autre pas\' i \'Sans Toit Ni Loi\'', resum: 'L\'objectiu d\'aquest treball de fi de grau és el de trobar i exposar la filosofia que es mostra en dues de les pel·lícules d\'Agnès Varda, passant primer per una exposició dels debats pertinents de la Filosofia del Cinema.' },
+        { sessio: '11:20', nom: 'Erxart Casas Llargués', titol: 'Ètica aplicada a les xarxes socials', resum: '' },
+        { sessio: '11:45', nom: 'Ander Salvà Korta', titol: 'La validesa de la democràcia deliberativa de J. Habermas en el context actual marcat per la presència de les xarxes socials', resum: '' },
+        { sessio: '12:10', nom: 'Berta Fitó Casas', titol: 'La campana sense batall. Sobre els texts generats amb models d\'Intel·ligència Artificial, l\'autoria artística i l\'experiència humana', resum: 'Es proposa una definició d\'autoria basada en la intenció i la responsabilitat, i es contrasta als models generatius d\'IA. Es planteja l\'impacte de la inclusió dels texts generats a la literatura.' },
+        { sessio: '12:50', nom: 'Júlia Amorós López', titol: 'Experiència estètica i reconciliació entre raó i sensibilitat a les Cartes sobre l\'educació estètica de l\'home de Friedrich Schiller', resum: 'En aquest treball s\'analitzarà el paper de l\'experiència estètica com a estadi reconciliador entre sensibilitat i raó i la seva viabilitat conceptual a les Cartes sobre l\'educació estètica de l\'home de Friedrich Schiller.' },
+        { sessio: '13:15', nom: 'Atinkut Mas Company', titol: 'L\'estètica de Friedrich Schiller com a via per reduir el sofriment humà', resum: 'Segons Schiller, aquest sofriment neix de la desharmonia entre la sensibilitat i la raó. Per això defensa que només l\'equilibri entre ambdues, mitjançant l\'art i l\'experiència estètica, permet reduir el patiment i viure de manera més plena.' },
+        { sessio: '13:40', nom: 'Jan Perramon Gutiérrez', titol: 'La dominació de la voluntat sobre l\'intel·lecte en Schopenhauer', resum: 'L\'objectiu del treball és reforçar la tesi schopenhaueriana segons la qual voluntat constitueix l\'essència humana, mentre que l\'intel·lecte ocupa una funció merament instrumental, subordinada a la realització dels fins de la voluntat.' },
+        { sessio: '14:05', nom: 'Óscar Jordán Ribas', titol: 'Materialismo Filosófico y Teoría de la Literatura: Disco Elysium desde la Crítica de la Razón Literaria', resum: 'Un estudio de la novela digital interactiva Disco Elysium bajo los criterios materialistas de la Crítica de la Razón Literaria.' }
     ];
     
     const slider = document.getElementById('slider');
@@ -386,8 +386,8 @@
         const item = document.createElement('div');
         item.className = 'item-calendari';
         item.id = `item-cal-${i}`;
-        const horaInici = 9 + Math.floor(i / 2);
-        const minutInici = (i % 2) * 30;
+        const horaInici = estudiant.sessio.split(':')[0];
+        const minutInici = estudiant.sessio.split(':')[1];
         const horaFormatada = `${String(horaInici).padStart(2,'0')}:${String(minutInici).padStart(2,'0')}`;
         
         item.style.cssText = "padding: 1.2rem; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;";
@@ -434,10 +434,19 @@
     }
 
     function crearEsdevenimentIndividual(nom, h, m) {
-        const inici = `20260618T${String(h).padStart(2,'0')}${String(m).padStart(2,'0')}00Z`;
-        const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=Ponència+TFG:+${encodeURIComponent(nom)}&dates=${inici}/${inici}&location=Sala+Jane+Addams`;
-        window.open(url, '_blank');
-    }
+    const dataInici = new Date(2026, 5, 18, h, m);                          // Gener és 0; per tant, Juny és 5
+    const dataFinal = new Date(dataInici.getTime() + 25 * 60 * 1000);       // 25 minuts després
+
+    const formatToUTCString = (date) => {
+        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'; // Format: YYYYMMDDTHHMMSSZ
+    };
+
+    const inici = formatToUTCString(dataInici);
+    const final = formatToUTCString(dataFinal);
+
+    const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=Ponència+TFG:+${encodeURIComponent(nom)}&dates=${inici}/${final}&location=Sala+Jane+Addams`;
+    window.open(url, '_blank');
+}
 </script>
 
 </body>
